@@ -1,6 +1,6 @@
 import React,{Fragment,useState} from 'react';
 import classes from './Form.module.css';
-const Form=()=>{
+const Form=(props)=>{
     const [title,setTitle]=useState('');
     const[open,setOpen]=useState('');
     const [date,setDate]=useState('');
@@ -15,13 +15,13 @@ const Form=()=>{
     }
     const eventHandler=(event)=>{
         event.preventDefault();
-        const expenceData={
-            Title:title,
-            Open:open,
-            Date:new Date(date)
+        const movie={
+            title:title,
+            OpeningText:open,
+            releaseDate:new Date(date)
         }
-        console.log(expenceData)
         
+        props.onAddMovie(movie);
 
     }
 
